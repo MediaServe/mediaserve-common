@@ -1,6 +1,6 @@
 {
   "name": "mediaserve-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Common JavaScript library for MediaServe projects",
   "main": "index.js",
   "module": "index.js",
