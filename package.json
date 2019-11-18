@@ -1,0 +1,50 @@
+{
+  "name": "mediaserve-common",
+  "version": "1.0.0",
+  "description": "Common JavaScript library for MediaServe projects",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MediaServe/mediaserve-common.git"
+  },
+  "keywords": [
+    "mediaserve",
+    "international",
+    "common",
+    "javascript",
+    "library",
+    "provoice",
+    "neoblocks"
+  ],
+  "author": "MediaServe International B.V. <helpdesk@mediaserve.nl> (https://mediaserve.nl/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MediaServe/mediaserve-common/issues"
+  },
+  "homepage": "https://github.com/MediaServe/mediaserve-common#readme",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "async": "^3.1.0",
+    "bignumber.js": "^9.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.5",
+    "express-handlebars": "^3.1.0",
+    "express-openapi": "^4.6.5",
+    "express-openapi-validator": "^2.15.0",
+    "express-session": "^1.16.2",
+    "express-ws": "^4.0.0",
+    "mysql": "^2.17.1",
+    "node-fetch": "^2.6.0",
+    "openapi-enforcer": "^1.5.4",
+    "openapi-enforcer-middleware": "^1.1.6",
+    "uuid": "^3.3.3"
+  }
+}
