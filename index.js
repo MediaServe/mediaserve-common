@@ -277,8 +277,7 @@ class server {
 						throw { status: 403, message: 'Forbidden' }
 					}
 				},
-				validateResponses: true
-				// unknownFormats: ['my-format'] // <-- to provide custom formats
+				validateResponses: false
 			}).install(app);
 
 			express.openapi.initialize({
