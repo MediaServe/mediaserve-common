@@ -1,6 +1,6 @@
 {
   "name": "mediaserve-common",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Common JavaScript library for MediaServe projects",
   "main": "index.js",
   "module": "index.js",
@@ -34,6 +34,7 @@
     "abort-controller": "^3.0.0",
     "async": "^3.1.0",
     "bignumber.js": "^9.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.5",
     "express-handlebars": "^3.1.0",

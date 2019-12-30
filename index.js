@@ -6,6 +6,7 @@ const uuid = require('uuid/v5');
 const async = require('async');
 const fs = require('fs');
 const util = require('util');
+const cors = require('cors');
 
 const express = {
 	"express": require('express'),
@@ -259,6 +260,10 @@ class server {
 			saveUninitialized: true
 		}));
 
+		if (this.config.cors.enable) {
+			app.use(cors());
+		};
+
 		if (this.config.api.enable) {
 			new express.validator({
 				apiSpec: this.config.api.specifications,
@@ -285,11 +290,19 @@ class server {
 				apiDoc: this.config.api.specifications,
 				operations: this.config.api.operations,
 				errorMiddleware: (error, request, response, next) => {
-					let result = {
-						code: error.status,
-						message: error.errors[0].message
+					let status = 400;
+					let message = "Bad Request";
+					if (error && error.errors && Array.isArray(error.errors)) {
+						message = error.errors[0].message;
 					};
-					response.status(error.status);
+					if (error && error.status) {
+						status = error.status;
+					};
+					let result = {
+						code: status,
+						message: message
+					};
+					response.status(status);
 					response.send(result);
 				}
 			});
@@ -332,6 +345,7 @@ class database {
 				connectionLimit: 32,
 				queueLimit: 1024,
 				supportBigNumbers: true,
+				multipleStatements: true,
 				host: this.config.host,
 				user: this.config.user,
 				password: this.config.password,
