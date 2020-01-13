@@ -332,6 +332,7 @@ class database {
 	constructor (config) {
 		this.config = {
 			"host": "127.0.0.1",
+			"port": "3306",
 			"user": "mediaserve",
 			"password": "mediaserve",
 			"database": "mediaserve",
@@ -347,6 +348,7 @@ class database {
 				supportBigNumbers: true,
 				multipleStatements: true,
 				host: this.config.host,
+				port: this.config.port,
 				user: this.config.user,
 				password: this.config.password,
 				database: this.config.database,
