@@ -183,12 +183,17 @@ class service {
 			*/
 
 			if (!this.is.string(method)) { throw new Error("Invalid parameter: expected string"); };
-			if (!this.is.json(body)) { throw new Error("Invalid parameter: expected object"); };
+			if (method == 'POST' && !this.is.json(body)) { throw new Error("Invalid parameter: expected object"); };
 
 			try {
 				let controller = new abort.AbortController;
 				let timeout = (this.timers.push(setTimeout (() => { controller.abort(); }, this.config.timeout))-1);
-				let response = await fetch(address, { signal: controller.signal, method: method, body: body, headers: { 'Content-Type': 'application/json' } });
+				let response;
+				if (method == 'POST') {
+					response = await fetch(address, { signal: controller.signal, method: method, body: body, headers: { 'Content-Type': 'application/json' } });
+				} else {
+					response = await fetch(address, { signal: controller.signal, method: method, headers: { 'Content-Type': 'application/json' } });
+				};
 				clearTimeout(this.timers[timeout]);
 				let data = await response.json();
 				return data;
